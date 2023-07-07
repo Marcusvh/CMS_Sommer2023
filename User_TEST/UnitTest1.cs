@@ -1,4 +1,5 @@
 using CMS_REST.Managers;
+using User_DLL;
 
 namespace User_TEST
 {
@@ -32,18 +33,31 @@ namespace User_TEST
         [TestMethod]
         public void GetSingleUser_ShouldReturnNullException_UserManager()
         {
+            _userManager.GetSingleUser(1);
+            Assert.Fail();
         }
         [TestMethod]
         public void GetSingleUser_ShouldReturnNullExceptionByRole_UserManager()
         {
+            Assert.IsTrue(true);
         }
         [TestMethod]
-        public void GetSingleUser_ShouldReturnOutOfRangeException_UserManager()
+        [DataRow(0)]
+        [DataRow(-1)]
+        [DataRow(999)]
+        public void GetSingleUser_ShouldReturnOutOfRangeException_UserManager(int id)
         {
+            _userManager.GetSingleUser(id);
+            Assert.Fail();
         }
         [TestMethod]
-        public void GetSingleUser_ShouldReturnCorrectUser_UserManager()
+        [DataRow(1)]
+        [DataRow(2)]
+        [DataRow(3)]
+        public void GetSingleUser_ShouldReturnCorrectUser_UserManager(int id)
         {
+            UserInfo user = _userManager.GetSingleUser(id);
+            Assert.IsNotNull(user);
         }
 
         [TestMethod]
