@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CMS_DLL
+namespace User_DLL
 {
-    public enum UserRole { Customer, Worker, Creater, Admin, SuperAdmin};
+    public enum UserRole { Customer, Worker, Creater, Admin, SuperAdmin };
     public class UserInfo
     {
-        public int ID {  get; set; }
+        public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         [EmailAddress]

@@ -10,15 +10,23 @@ namespace User_TEST
         [TestMethod]
         public void GetAllUsers_ShouldReturnNullException_UserManager()
         {
+            _userManager.GetAllUsers();
+
+            Assert.Fail();
+
         }
         [TestMethod]
         public void GetAllUsers_ShouldReturnNullExceptionByRole_UserManager()
         {
+            Assert.IsTrue(true); // TODO
         }
 
         [TestMethod]
         public void GetAllUsers_ShouldReturnFullList_UserManager()
         {
+            int count = _userManager.GetAllUsers().Count;
+
+            Assert.IsTrue(2 <= count); // TODO, do a better one
         }
 
         [TestMethod]
